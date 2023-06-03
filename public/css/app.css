@@ -1,0 +1,27 @@
+/* Custom styles for your project */
+
+/* Center align the page content */
+.container {
+    margin-top: 50px;
+    /* text-align: center; */
+}
+
+/* Add some padding to the form inputs */
+.form-control {
+    padding: 10px;
+}
+
+/* Add some margin to the buttons */
+.btn {
+    margin-right: 5px;
+}
+
+/* Add some margin to the top of the table */
+table {
+    margin-top: 20px;
+}
+
+/* Add a bit of space between table cells */
+td {
+    padding: 5px;
+}
