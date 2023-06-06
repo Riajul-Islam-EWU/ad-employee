@@ -1,27 +1,48 @@
-/* Custom styles for your project */
+/* css/app.css */
 
-/* Center align the page content */
-.container {
-    margin-top: 50px;
-    /* text-align: center; */
-}
+/* Custom styles for the project */
 
-/* Add some padding to the form inputs */
-.form-control {
-    padding: 10px;
-}
-
-/* Add some margin to the buttons */
-.btn {
-    margin-right: 5px;
-}
-
-/* Add some margin to the top of the table */
-table {
-    margin-top: 20px;
-}
-
-/* Add a bit of space between table cells */
-td {
-    padding: 5px;
-}
+/* Center the content vertically */
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Add padding to the container */
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  /* Style the top navigation bar */
+  .navbar {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the form */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the buttons */
+  .btn {
+    margin-right: 10px;
+  }
+  
+  /* Add margin-bottom to the table */
+  .table {
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive classes */
+  @media (max-width: 576px) {
+    /* Center align the text in the table cells */
+    table td, table th {
+      text-align: center;
+    }
+  }
+  

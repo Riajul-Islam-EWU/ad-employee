@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,12 @@ Route::get('/', function () {
 // Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
 
 Route::resource('employees', EmployeeController::class);
+
+
+Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
+Route::get('/create', [CustomerController::class, 'create'])->name('customers.create');
+Route::post('/store', [CustomerController::class, 'store'])->name('customers.store');
+Route::get('/edit/{customer}', [CustomerController::class, 'edit'])->name('customers.edit');
+Route::patch('/update/{customer}', [CustomerController::class, 'update'])->name('customers.update');
+Route::delete('/destroy/{customer}', [CustomerController::class, 'destroy'])->name('customers.destroy');
+
