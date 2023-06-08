@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\DistrictController;
+use App\Models\Customer;
+use App\Models\District;
+use App\Models\Division;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +33,7 @@ use App\Http\Controllers\CustomerController;
 
 Route::resource('employees', EmployeeController::class);
 
+// Customer
 Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
 Route::get('/create', [CustomerController::class, 'create'])->name('customers.create');
 Route::post('/store', [CustomerController::class, 'store'])->name('customers.store');
@@ -37,3 +43,13 @@ Route::delete('/delete/{id}', [CustomerController::class, 'destroy'])->name('cus
 
 Route::get('/customers/{customer}', [CustomerController::class, 'show'])->name('customers.show');
 Route::get('/customers/{customer}/data', [CustomerController::class, 'getData'])->name('customers.data');
+
+// Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create');
+// Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
+
+// Division
+Route::get('/division/index', [DivisionController::class, 'index'])->name('divisions.index');
+// Route::resource('divisions', DivisionController::class);
+
+// District
+Route::resource('districts', DistrictController::class);

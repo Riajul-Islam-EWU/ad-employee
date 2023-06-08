@@ -2,34 +2,52 @@
 
 @section('content')
     <div class="container">
-        <h2>Add New Customer</h2>
-        <form method="POST" action="{{ route('customers.store') }}">
+        <h2>Add Customer</h2>
+        <form action="{{ route('customers.store') }}" method="POST">
             @csrf
-            <div class="form-group">
-                <label for="first_name">First Name:</label>
-                <input type="text" class="form-control" id="first_name" name="first_name" value="{{ old('first_name') }}" required>
+            <div class="mb-3">
+                <label for="first_name" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name">
             </div>
-            <div class="form-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ old('last_name') }}" required>
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name">
             </div>
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}" required>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" name="address">
             </div>
-            <div class="form-group">
-                <label for="district">District:</label>
-                <input type="text" class="form-control" id="district" name="district" value="{{ old('district') }}" required>
+            <div class="mb-3">
+                <label for="district" class="form-label">District</label>
+                <select class="form-control select2" id="district" name="district">
+                    <option value="">Select District</option>
+                    @foreach ($districts as $district)
+                        <option value="{{ $district->id }}">{{ $district->name }}</option>
+                    @endforeach
+                </select>
             </div>
-            <div class="form-group">
-                <label for="division">Division:</label>
-                <input type="text" class="form-control" id="division" name="division" value="{{ old('division') }}" required>
+            <div class="mb-3">
+                <label for="division" class="form-label">Division</label>
+                <select class="form-control select2" id="division" name="division">
+                    <option value="">Select Division</option>
+                    @foreach ($divisions as $division)
+                        <option value="{{ $division->id }}">{{ $division->name }}</option>
+                    @endforeach
+                </select>
             </div>
-            <div class="form-group">
-                <label for="phone">Phone:</label>
-                <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" required>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone">
             </div>
             <button type="submit" class="btn btn-primary">Add Customer</button>
         </form>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
 @endsection

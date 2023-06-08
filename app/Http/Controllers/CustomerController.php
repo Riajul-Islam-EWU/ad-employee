@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-// use App\Customer;
 use App\Models\Customer;
+use App\Models\District;
+use App\Models\Division;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +27,10 @@ class CustomerController extends Controller
 
     public function create()
     {
-        return view('customers.create');
+        $divisions = Division::all();
+        $districts = District::all();
+
+        return view('customers.create', compact('divisions', 'districts'));
     }
 
     public function store(Request $request)
