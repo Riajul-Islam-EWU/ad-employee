@@ -15,9 +15,9 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/', [EmployeeController::class, 'index'])->name('employees.index');
 // Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
@@ -28,11 +28,12 @@ Route::get('/', function () {
 
 Route::resource('employees', EmployeeController::class);
 
-
 Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
 Route::get('/create', [CustomerController::class, 'create'])->name('customers.create');
 Route::post('/store', [CustomerController::class, 'store'])->name('customers.store');
-Route::get('/edit/{customer}', [CustomerController::class, 'edit'])->name('customers.edit');
-Route::patch('/update/{customer}', [CustomerController::class, 'update'])->name('customers.update');
-Route::delete('/destroy/{customer}', [CustomerController::class, 'destroy'])->name('customers.destroy');
+Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('customers.edit');
+Route::put('/update/{id}', [CustomerController::class, 'update'])->name('customers.update');
+Route::delete('/delete/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
 
+Route::get('/customers/{customer}', [CustomerController::class, 'show'])->name('customers.show');
+Route::get('/customers/{customer}/data', [CustomerController::class, 'getData'])->name('customers.data');
