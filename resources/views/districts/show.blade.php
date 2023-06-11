@@ -8,6 +8,11 @@
             <input type="text" class="form-control" id="name" name="name" value="{{ $district->name }}" disabled>
         </div>
         <div class="mb-3">
+            <label for="district_code" class="form-label">District Code</label>
+            <input type="text" class="form-control" id="district_code" name="district_code"
+                value="{{ $district->district_code }}" disabled>
+        </div>
+        <div class="mb-3">
             <label for="division" class="form-label">Division</label>
             <input type="text" class="form-control" id="division" name="division"
                 value="{{ $district->division->name }}" disabled>

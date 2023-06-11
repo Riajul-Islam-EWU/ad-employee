@@ -11,12 +11,17 @@
                 <input type="text" class="form-control" id="name" name="name" value="{{ $district->name }}" required>
             </div>
             <div class="mb-3">
+                <label for="district_code" class="form-label">District Code</label>
+                <input type="text" class="form-control" id="district_code" name="district_code"
+                    value="{{ $district->district_code }}" required>
+            </div>
+            <div class="mb-3">
                 <label for="division_id" class="form-label">Division</label>
                 <select class="form-control" id="division_id" name="division_id" required>
                     <option value="">Select division</option>
                     @foreach ($divisions as $division)
-                        <option value="{{ $division->id }}"
-                            {{ $district->division_id == $division->id ? 'selected' : '' }}>{{ $division->name }}</option>
+                        <option value="{{ $division->id }}" {{ $district->division_id == $division->id ? 'selected' : '' }}>
+                            {{ $division->name }}</option>
                     @endforeach
                 </select>
             </div>

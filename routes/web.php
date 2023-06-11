@@ -24,6 +24,10 @@ use App\Models\Division;
 //     return view('welcome');
 // });
 
+Route::get('/', function () {
+    return view('homepage');
+});
+
 // Route::get('/', [EmployeeController::class, 'index'])->name('employees.index');
 // Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
 // Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.store');
@@ -34,7 +38,7 @@ use App\Models\Division;
 Route::resource('employees', EmployeeController::class);
 
 // Customer
-Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
+Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
 Route::get('/create', [CustomerController::class, 'create'])->name('customers.create');
 Route::post('/store', [CustomerController::class, 'store'])->name('customers.store');
 Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('customers.edit');
@@ -48,8 +52,7 @@ Route::get('/customers/{customer}/data', [CustomerController::class, 'getData'])
 // Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
 
 // Division
-Route::get('/division/index', [DivisionController::class, 'index'])->name('divisions.index');
-// Route::resource('divisions', DivisionController::class);
+Route::resource('divisions', DivisionController::class);
 
 // District
 Route::resource('districts', DistrictController::class);

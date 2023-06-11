@@ -24,11 +24,13 @@ class DistrictController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'district_code' => 'required',
             'division_id' => 'required',
         ]);
 
         District::create([
             'name' => $request->name,
+            'district_code' => $request->district_code,
             'division_id' => $request->division_id,
         ]);
 
@@ -45,16 +47,18 @@ class DistrictController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'district_code' => 'required',
             'division_id' => 'required',
         ]);
 
-        $district->update([
-            'name' => $request->name,
-            'division_id' => $request->division_id,
-        ]);
+        $district->name = $request->name;
+        $district->district_code = $request->district_code;
+        $district->division_id = $request->division_id;
+        $district->save();
 
         return redirect()->route('districts.index')->with('success', 'District updated successfully.');
     }
+
 
     public function show(District $district)
     {

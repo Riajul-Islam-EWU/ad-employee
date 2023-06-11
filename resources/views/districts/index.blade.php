@@ -12,6 +12,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>District Code</th>
                         <th>Division</th>
                         <th>Action</th>
                     </tr>
@@ -21,6 +22,7 @@
                         <tr>
                             <td>{{ $district->id }}</td>
                             <td>{{ $district->name }}</td>
+                            <td>{{ $district->district_code }}</td>
                             <td>{{ $district->division->name }}</td>
                             <td>
                                 <a href="{{ route('districts.show', $district->id) }}" class="btn btn-info">
